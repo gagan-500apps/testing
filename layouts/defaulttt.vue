@@ -5,7 +5,8 @@
           <ul class="navbar">
             <li><NuxtLink  to="/login">login</NuxtLink></li> 
             <li><NuxtLink  to="/register">register</NuxtLink></li> 
-            
+            <li><NuxtLink  to="/taskThree">tasktree</NuxtLink></li> 
+            <li><NuxtLink  to="/taskFour">taskfour</NuxtLink></li> 
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
 
           </ul>
