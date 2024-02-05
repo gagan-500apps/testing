@@ -1,7 +1,7 @@
 <template>
     <div>
-      
-      <button @click="openAddModal">Add</button>
+     <div class="d">task3</div> 
+      <button class="b" @click="openAddModal">Add</button>
   
       <table>
         <thead>
@@ -37,8 +37,8 @@
           <label>
             Gender:
             <select v-model="newItem.gender" required>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
               <option value="other">Other</option>
             </select>
           </label>
@@ -109,7 +109,7 @@
   const openEditModal = (index) => {
     editedItemIndex = index;
     editedItem.value = { ...items.value[index] };
-    hideGenderInEdit.value = false; // Reset to show the gender input in the modal
+    hideGenderInEdit.value = false; 
     showEditModal.value = true;
   };
   
@@ -140,6 +140,19 @@
   </script>
   
   <style scoped>
+
+.b{
+    color: white;
+    background-color: rgb(39, 138, 39);
+    border: rgb(13, 13, 13) solid 1px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+  .d{
+    margin-top: 10%;
+    /* color: red; */
+  }
   table {
     width: 100%;
     border-collapse: collapse;

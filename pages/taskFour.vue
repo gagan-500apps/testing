@@ -1,12 +1,14 @@
 
   <template>
-    <div>
-        <div class="search-bar">
+     <div class="d">TASK4</div>
+     <div>
+        
+      <!--  <div class="search-bar">
       <input v-model="searchQuery" type="text" placeholder="Search Contacts" @input="searchContacts" />
-    </div>
+    </div> -->
 
-      <button @click="openForm" class="add-contact-btn">Add Contact</button>
-  
+      <button  @click="openForm" class="add-contact-btn">Add Contact</button>
+      <!-- <button class="b" @click="openAddModal">Add</button> -->
       <div v-if="isFormOpen" class="modal">
         <div class="modal-content">
           <span class="close" @click="closeForm">&times;</span>
@@ -20,9 +22,10 @@
   
             <label for="country">Country:</label>
             <select v-model="country" required>
+                <option value="India">India</option>
               <option value="USA">USA</option>
               <option value="Canada">Canada</option>
-              <!-- Add more options as needed -->
+             
             </select>
   
             <button type="submit">Save Contact</button>
@@ -123,13 +126,23 @@ const filteredContacts = computed(() => {
   );
 });
 
-const searchContacts = () => {
-  // You can perform additional logic if needed
-};
   </script>
 
 
   <style scoped>
+
+.b{
+    color: white;
+    background-color: rgb(39, 138, 39);
+    border: rgb(13, 13, 13) solid 1px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+.d{
+    margin-top: 10%;
+  }
+
   .modal {
     display: flex;
     align-items: center;
@@ -145,18 +158,14 @@ const searchContacts = () => {
   }
   
   .modal-content {
-    background-color: #fefefe;
+    /* background-color: #fefefe; */
     padding: 20px;
     border: 1px solid #888;
   }
   
-  
-  
-  
-  
   .close {
   color: #aaa;
-  float: right; /* Move the close icon to the right */
+  float: right; 
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -177,6 +186,14 @@ const searchContacts = () => {
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 2;
+  margin-top: 10%;
+  margin-right: 20%;
+  color: white;
+    background-color: rgb(39, 138, 39);
+    border: rgb(13, 13, 13) solid 1px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .contact-box {
@@ -187,8 +204,8 @@ const searchContacts = () => {
 .square-box {
   border: 1px solid #ddd;
   padding: 10px;
-  width: 150px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
+  width: 150px; 
+  height: 150px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,7 +217,7 @@ const searchContacts = () => {
   position: absolute;
   top: 5px;
   right: 5px; 
-  color: #aaa;
+  /* color: #aaa; */
   font-size: 20px;
   cursor: pointer;
 }
@@ -224,7 +241,7 @@ const searchContacts = () => {
 }
 
 .confirmation-content {
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   padding: 20px;
   border: 1px solid #888;
   text-align: center;

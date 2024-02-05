@@ -1,69 +1,83 @@
 <template>
-    <h1>{{ head }}</h1>
-    <div v-for="(filed,index) in fields" :key=index>
-    <label>{{ filed.label }}</label>
-    <input type="filed.inputfield" v-model="filed.value" />
+  <div class="custom-form">
+    <h1 class="form-title">{{ head }}</h1>
+    <div v-for="(field, index) in fields" :key="index" class="form-field">
+      <label class="field-label">{{ field.label }}</label>
+      <input type="text" v-model="field.value" class="field-input" />
     </div>
-    <button @click="handelsubmit">{{ button }}</button>
+    <button @click="handleSubmit" class="submit-button">{{ button }}</button>
+  </div>
 </template>
 
 <script setup>
 import { defineProps, defineEmits } from 'vue';
 
-const probs= defineProps({
-    head: String,
-    fields: Array,
-    button: String,
-})
+const props = defineProps({
+  head: String,
+  fields: Array,
+  button: String,
+});
 
+const emits = defineEmits(['form-submit']);
 
-const emits = defineEmits(['form-submit'])
-const handelsubmit = ()=>{
-    const fromdata={}
-    probs.fields.forEach(n=>{
-        fromdata[n.label]=n.value
-        n.value=''
-    })
-    emits("form-submit", fromdata)
-}
-
-
+const handleSubmit = () => {
+  const formData = {};
+  props.fields.forEach((field) => {
+    formData[field.label] = field.value;
+    field.value = ''; // Clear the field after submitting
+  });
+  emits('form-submit', formData);
+};
 </script>
 
-<!-- <template>
-    <div>
-      <p>{{ heading }}</p>
-      
-      <div v-for="(field, index) in fields" :key="index">
-        <label>{{ field.label }}</label>
-        <input :type="field.inputfield" v-model="field.value"/>
-      </div>
-  
-      <button @click="handleSubmit">{{ button }}</button>
-    </div>
-</template>  -->
+<style scoped>
+/* Different styles for the form component */
+.custom-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.form-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-<!-- <script setup>
- import { defineProps, defineEmits } from 'vue'
-  
-  const props = defineProps({
-    heading: String,
-    fields: Array,
-    button: String,
-  })
+.form-field {
+  margin-bottom: 15px;
+}
 
-  const emits = defineEmits(['form-submit'])
-  
-  const handleSubmit = () => {
-    const formData = {}
-    props.fields.forEach(field => {
-       
-      formData[field.label] = field.value   //here field.label are email,password   and field.vlaue are the values of email and password
-      
-       field.value = '' // reset value of the field after submiting.
-    })
-    emits("form-submit", formData)
-  }
+.field-label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
 
-</script> -->
+.field-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
+</style>

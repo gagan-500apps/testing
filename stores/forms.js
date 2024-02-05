@@ -7,10 +7,10 @@ const register_form=[
                   Form_Heading: 'Registration',
                   Form_Fields: [
                     { label: 'FirstName', inputfield: 'text', value: '' },
-                    { label: 'LastName', inputfield: 'text', value: '' },
-                    { label: 'Password', inputfield: 'password', value: '' },
                     { label: 'Email', inputfield: 'email', value: '' },
-                    { label: 'PhoneNumber', inputfield: 'tel', value: '' }
+                    { label: 'Password', inputfield: 'password', value: '' },
+                   
+                    
                   ],
                   Form_button: 'Register'
                 }
